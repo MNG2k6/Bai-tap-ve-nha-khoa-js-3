@@ -1,159 +1,136 @@
-arrayNumber = [10, -3, 5, -7, 11, -15, -20, 23];
-//  1.
+// BAI 1 
+// Thiết lập lớp PhanSo để biểu diễn khái niệm phân số với hai thành phần dữ liệu tử số, 
+// mẫu số và các hàm thành phần cộng, trừ, nhân, chia hai phân số, các hàm thành phần xuất, nhập, 
+// định giá trị cho phân số. Viết chương trình cho phép nhập vào hai phân số,
+// in ra kết quả các phép toán cộng, trừ, nhân, chia hai phân số kể trên.
 
-
-// 2. 
-// let numMax = arrayNumber[0];
-// for (let b = 0; b < arrayNumber.length; b++) {
-//     if(arrayNumber[b] >= numMax) {
-//         numMax = arrayNumber[b];
-//     }
-// }
-// console.log(numMax);
-
-// 3.
-
-// let numMin = arrayNumber[0];
-// for (let c = 0; c < arrayNumber.length; c++) {
-//     if(arrayNumber[c] <= numMin) {
-//         numMin = arrayNumber[c];
-//     }
-// }
-
-// for (let d = 0; d < arrayNumber.length; d++) {
-//     if(arrayNumber[d] == numMin) {
-//         console.log(d);
-//     }    
-// }
-
-// 4. 
-
-// 5
-// let snt = arrayNumber[0]
-// for (let i = 0; i < arrayNumber.length; i++) {
-//     if(arrayNumber[i] >= 1) {
-//         snt = arrayNumber[i];
-//         if (snt % snt == 1) {
-//             console.log(snt, "la so nguyen to");
-//         }
-//     }    
-// }
-
-// 6. 
-
-// for (let f = 0; f < arrayNumber.length; f++) {
-//     if(arrayNumber[f] < 0) {
-//         arrayNumber.splice(f, 1, 0);
-//     }    
-// }
-// console.log(arrayNumber);
-
-// 7. 
-
-// for (let g = 0; g < arrayNumber.length; g++) {
-//     if(arrayNumber[g] < 0) {
-//         arrayNumber.splice(g, 1);
-//     } 
-//     if(arrayNumber[g] <= 0) {
-//         arrayNumber.splice(g,1);
-//     }   
-// }
-// console.log(arrayNumber);
-// Bai 2 
-// let soNguyenTo = [17,13,5,11,3,2,29,23,19,31]
-// // theo thu tu tang dan 
-// soNguyenTo.sort(function sort(a, b) {
-//     if (a > b) return 1;
-//     if (a < b) return -1;
-//     return 0;
-// });
-// console.log(soNguyenTo);
-
-// theo thu tu giam dan 
-
-// soNguyenTo.sort(function sort(a, b) {
-//     if (a > b) return -1;    
-//     if (a < b) return 1;
-//     return 0;
-// });
-// console.log(soNguyenTo);
-
-// Bai 3 
-// let n;
-// do {
-//     n = prompt("put an num")
-//     if(!isNaN(n)) {
-//         break;
-//     } else {
-//         alert("nhap lai")
-//     }
-// } while (!isNaN(n));
-
-// function myFunction() {
-//     var flag = true;
-//     if(n < 2) {
-//         flag = false;
-//     } else {
-//         for (let i = n; 2 < i; i--) {
-//             if(n % 1 == 0) {
-//                 flag = false;
-//                 break;
-//             }
-//         }
-//     }
-
-//     if(flag == true) {
-//         document.write(n + "la so nguyen to");
-//     }
-// }
-// myFunction(n);
-
-// Bai 4
-
-// function saveInfo() {
-//     let ten = document.getElementById("ten").value;
-//     let tuoi = document.getElementById("tuoi").value;
-//     let tinhTrangQuanHe = document.getElementById("tinhTrangQuanHe").value;
-//     let email = document.getElementById("email").value;
-//     let gioiTinh = document.getElementById("gioiTinh").value;
+class PhanSo {
+    tuSo = 0;
+    mauSo = 0;
+    constructor(tuSo,mauSo) {
+        this.tuSo = tuSo
+        this.mauSo = mauSo
+    }
     
-//     let thongTin = localStorage.getItem('id');
-//     thongTin = thongTin ? JSON.parse(localStorage.getItem('id')) : [];
-//     thongTin.push({
-//         ten : ten,
-//         tuoi : tuoi,
-//         tinhTrangQuanHe : tinhTrangQuanHe,
-//         email : email,
-//         gioiTinh : gioiTinh,
-//     });
-//     localStorage.setItem('id', JSON.stringify(thongTin));
-//     print();
-// }
+    add(PhanSo2) {
+        return new PhanSo(this.tuSo*PhanSo2.mauSo + PhanSo2.tuSo*this.mauSo,this.mauSo*PhanSo2.mauSo)
+    }
 
-// function print() {
-//     let thongTin = localStorage.getItem('id');
-//     thongTin = thongTin ? JSON.parse(localStorage.getItem('id')) : [];
-//     if(thongTin.length === 0) {
-//         document.getElementById("list").style.display = 'none';
-//         return false;
-//     }
-//     document.getElementById("list").style.display = 'block';
-//     let tableContent = `<tr>
-//     <td>Ho va ten</td>
-//     <td>Tuoi</td>
-//     <td>Tinh trang quan he</td>
-//     <td>Email</td>
-//     <td>Gioi Tinh</td>
-// </tr>`;
-//     for (let i = 0; i < thongTin.length; i++) {
-//         tableContent += 
-//         `<tr>
-//             <td>${thongTin.ten}</td>
-//             <td>${thongTin.tuoi}</td>
-//             <td>${thongTin.tinhTrangQuanHe}</td>
-//             <td>${thongTin.email}</td>
-//             <td>${thongTin.gioiTinh}</td>
-// 	    </tr>`;
-//     }
-//     document.getElementById("grid-list").innerHTML = tableContent;
-// }
+    mul(PhanSo3) {
+        return new PhanSo(this.tuSo*PhanSo3.tuSo,this.mauSo*PhanSo3.mauSo)
+    }
+
+    sub(PhanSo4) {
+        return new PhanSo(this.tuSo*PhanSo4.mauSo - PhanSo4.tuSo*this.mauSo, this.mauSo*PhanSo4.mauSo)
+    }
+
+    div(PhanSo5) {
+        return new PhanSo(this.tuSo*PhanSo5.mauSo, this.mauSo*PhanSo5.tuSo)
+    }
+
+    show() {
+        console.log(`day la ket qua: ${this.tuSo}/${this.mauSo}`);
+    }
+}
+
+let PhanSo1 = new PhanSo(1,5);
+let PhanSo2 = new PhanSo(2,7);
+let PhanSo3 = new PhanSo(6,10);
+let PhanSo4 = new PhanSo(5,9);
+let PhanSo5 = new PhanSo(9,4);
+
+let addResult = PhanSo1.add(PhanSo2);
+let mulResult = PhanSo1.mul(PhanSo3);
+let subResult = PhanSo1.sub(PhanSo4);
+let divResult = PhanSo1.div(PhanSo5);
+
+addResult.show();
+mulResult.show();
+subResult.show();
+divResult.show();
+
+// Bài 2:
+
+// Xây dựng lớp Candidate (Thí sinh) gồm các thuộc tính: mã, tên, ngày tháng năm sinh, điểm thi Toán, Văn, Anh và các phương thức cần thiết.
+
+// Xây dựng lớp TestCandidate để kiểm tra lớp trên:
+
+// – Nhập vào n thí sinh (n do người dùng nhập)
+
+// – In ra thông tin về các thí sinh có tổng điểm lớn hơn 15
+
+class Candidate {
+    ma = 0175
+    ngaysinh = 1
+    thangsinh = 1
+    namsinh = 2001
+    diemToan = 0
+    diemVan = 0
+    diemAnh = 0
+    constructor(ma,ngaysinh,thangsinh,namsinh,diemToan,diemVan,diemAnh) {
+        this.ma = ma
+        this.ngaysinh = ngaysinh
+        this.thangsinh = thangsinh
+        this.namsinh = namsinh
+        this.diemToan = diemToan
+        this.diemVan = diemVan
+        this.diemAnh = diemAnh
+    }
+
+}
+
+let hs1 = new Candidate(0175,01,01,2008,6,7,8);
+let hs2 = new Candidate(1100,02,01,2001,7,5,8);
+let hs3 = new Candidate(1135,03,04,2003,4,5,3);
+function checkMark() {
+    if(hs1.diemToan + hs1.diemVan + hs1.diemAnh > 15) {
+        console.log(hs1);
+    }
+    if(hs2.diemToan + hs2.diemVan + hs2.diemAnh > 15) {
+        console.log(hs2);
+    }
+    if(hs3.diemToan + hs3.diemVan + hs3.diemAnh > 15) {
+        console.log(hs3);
+    }
+}
+
+checkMark();
+
+// Ngân hàng ABC muốn lưu trữ thông tin của mỗi tài khoản như sau:
+
+// Mỗi tài khoản chứa các thông tin:
+
+// Số tài khoản 
+// Tên tài khoản 
+// Số tiền trong tài khoản 
+// Thiết kế lớp Account để lưu trữ các thông tin, lớp bao gồm các phương thức sau:
+
+// Constructor
+// Các phương thức get, set cho từng thuộc tính
+// Phương thức toString để trả về chuỗi chứa toàn bộ thông tin tài khoản, yêu cầu định dạng tiền tệ.
+// Thêm các thông tin sau vào lớp Account:
+
+// Hằng số lãi suất có giá trị khởi tạo 0.035
+// Constructor có 2 đối số: số tài khoản, tên tài khoản. Constructor này sẽ khởi tạo số tiền mặc định là 50
+// Phương thức nạp tiền vào tài khoản: Lấy số tiền hiện tại trong tài khoản + số tiền nạp vào
+// Phương thức rút tiền: Lấy số tiền hiện tại trong tài khoản – (số tiền muốn rút+phí rúttiền)
+// Phương thức đáo hạn: Mỗi lần đến kỳ đáo hạn thì số tiền trong tài khoản = số tiền trong tài khoản + số tiền trong tài khoản * LAISUAT
+// Phương thức chuyển khoản từ tài khoản này sang tài khoản khác
+// Chú ý: Mỗi thao tác phải kiểm tra số tiền nạp, rút, chuyển có hợp lệ hay không? 
+// (VD: tiền nhập vào <0, tiền rút nhiều hơn tiền trong tài khoản thì thông báo không hợp lệ và yêu cầu nhập lại)
+
+class Account {
+    Accountnumber = 0
+    Accountname = "A"
+    Accountcash = 0
+
+    constructor(Accountnumber,Accountname,Accountcash) { 
+        this.Accountnumber = Accountnumber
+        this.Accountname = Accountname
+        this.Accountcash = Accountcash
+    }
+}
+let Acc1 = new Account(1,"A",1000000)
+// document.getElementById("info").innerHTML = Acc1.toString()
+console.log(Acc1);
+document.getElementById("info").innerHTML = Acc1
